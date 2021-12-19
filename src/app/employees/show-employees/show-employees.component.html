@@ -1,0 +1,51 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click)="addClick()"
+data-backdrop="static" data-keyboard="false"
+>
+    Add Member
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+            <app-add-employee [employee]="employee" *ngIf="ActivateAddEmployeeCom">
+            </app-add-employee>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<table class="table table-striped">
+    <thead> 
+        <tr>
+            <th>EmployeeId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Designation</th>
+            <th>Address</th>
+            <th>PhoneNumber</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of EmployeeList"> 
+            <td>{{dataItem.EmployeeId}}</td>
+            <td>{{dataItem.EmployeeFirstName}}</td>
+            <td>{{dataItem.EmployeeLastName}}</td>
+            <td>{{dataItem.EmployeeDesignation}}</td>
+            <td>{{dataItem.EmployeeAddress}}</td>
+            <td>{{dataItem.EmployeePhoneNumber}}</td>
+            <td>{{dataItem.EmployeeEmail}}</td>
+            <td>{{dataItem.EmployeeRole}}</td>
+        </tr>
+    </tbody>
+</table>

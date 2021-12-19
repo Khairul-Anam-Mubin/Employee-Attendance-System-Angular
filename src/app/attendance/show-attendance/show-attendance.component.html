@@ -1,0 +1,49 @@
+<!-- Button trigger modal -->
+<h3 class="d-flex justify-content-center">This Month Report</h3>
+<button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click)="addClick()"
+data-backdrop="static" data-keyboard="false"
+>
+    Add Attendance
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Attendance</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+            <app-add-attendance [attendance]="attendance" *ngIf="ActivateAddAttendanceCom">
+            </app-add-attendance>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<table class="table table-striped">
+    <thead> 
+        <tr>
+            <th>EmployeeId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Entry Time</th>
+            <th>Exit Time</th>
+            <th>Total Stay time</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let dataItem of getKeys(AttendanceList)"> 
+            <td>{{AttendanceList[dataItem].EmployeeId}}</td>
+            <td>{{AttendanceList[dataItem].EmployeeFirstName}}</td>
+            <td>{{AttendanceList[dataItem].EmployeeLastName}}</td>
+            <td>{{AttendanceList[dataItem].EntryTime}}</td>
+            <td>{{AttendanceList[dataItem].ExitTime}}</td>
+            <td>{{AttendanceList[dataItem].TotalStayTime}}</td>
+        </tr>
+    </tbody>
+</table>

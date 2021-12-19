@@ -1,0 +1,42 @@
+<div class="form-group row" style="width: 60%">
+    <label class="col-sm-2 col-form-label">Employee Id</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeeId" placeholder="Enter ID" required>        
+    </div>
+    <label class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeeFirstName" placeholder="Enter First Name" required>
+
+    </div>
+    <label class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeeLastName" placeholder="Enter Last Name" required>
+
+    </div>
+    <label class="col-sm-2 col-form-label">Designation</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeeDesignation" placeholder="Ex: Programmer" required>
+
+    </div>
+    <label class="col-sm-2 col-form-label">Address</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeeAddress" placeholder="Ex: Dhaka" required>
+
+    </div>
+    <label class="col-sm-2 col-form-label">Phone</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeePhoneNumber" placeholder="+88" required>
+
+    </div>
+    <label class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="EmployeeEmail" placeholder="sample@gmail.com" required>
+
+    </div>
+    <label class="col-sm-2 col-form-label">Pin</label>
+    <div class="col-sm-10">
+        <input type="password" class="form-control" [(ngModel)]="EmployeePin" placeholder="****" required>
+
+    </div>
+</div>
+<button class = "btn btn-success my-4"(click)="addEmployee()"> Add </button>
