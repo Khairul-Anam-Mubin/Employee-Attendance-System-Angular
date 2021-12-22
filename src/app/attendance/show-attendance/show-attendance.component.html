@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<h3 class="d-flex justify-content-center">This Month Report</h3>
+<h3 class="d-flex justify-content-center">{{whichMonth}} Monthly Report</h3>
 <button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
 (click)="addClick()"
 data-backdrop="static" data-keyboard="false"
@@ -23,6 +23,30 @@ data-backdrop="static" data-keyboard="false"
       </div>
     </div>
   </div>
+
+  <div class="container" style="width: 60%">
+    <label class="col" style="float: left;">Month</label>
+    <select class="form-select mx-1" [(ngModel)]="Month" style="float: left; height: 40px;line-height: 20px;width: 150px">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+    
+      <label class="col col-form-label mx-3" style="float: left; ">Year</label>
+      <div class="col-sm" style="float: left;">
+          <input type="text" class="form-control" [(ngModel)]="Year" placeholder="Ex: 2021">        
+      </div>
+      <button class = "btn btn-success mx-2"(click)="Filter()" style="float: left;"> Filter </button>
+</div>
 
 <table class="table table-striped">
     <thead> 
