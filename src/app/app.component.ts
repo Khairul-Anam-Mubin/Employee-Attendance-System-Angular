@@ -32,7 +32,7 @@ export class AppComponent {
       return ;
     } else {
       for (let data of this.EmployeeList) {
-        if (data["EmployeeId"].toString() === this.AdminId.toString() && data['EmployeePin'].toString() === this.AdminPin.toString()) {
+        if (data["EmployeeId"].toString() === this.AdminId.toString() && data['EmployeePin'].toString() === this.AdminPin.toString() && data["Role"].toString === "admin") {
           this.LogInDivHidden = true;
           return;
         }
