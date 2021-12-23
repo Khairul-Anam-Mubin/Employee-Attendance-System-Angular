@@ -30,6 +30,10 @@ export class AddEmployeeComponent implements OnInit {
     this.EmployeePin = this.employee.EmployeePin;
   }
   addEmployee() {
+    if (this.EmployeeId === "" || this.EmployeeFirstName === "" || this.EmployeeLastName === "" || this.EmployeeDesignation === "" || this.EmployeeAddress === "" || this.EmployeePhoneNumber === "" || this.EmployeeEmail === "" || this.EmployeePin === "") {
+        alert("You have to fill up all the informations!!");
+        return;
+    } 
     var val = {
       EmployeeId: this.EmployeeId,
       EmployeeFirstName:this.EmployeeFirstName,
@@ -42,7 +46,7 @@ export class AddEmployeeComponent implements OnInit {
     };
     this.service.addEmployee(val).subscribe(res=>{
       if (res === null) {
-        alert("Check if employeeid, is valid!!");
+        alert("Employee Id, Phone Number or Email already exists!!");
       } else {
         alert("Sucessfull!");
       }
