@@ -14,5 +14,31 @@
       </li>
     </ul>
   </nav>
+  <div class="col text-center">
+    <button type="button" [hidden] = "buttonDisabled" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click)="addClick()"
+data-backdrop="static" data-keyboard="false"
+>
+{{buttonName}}
+  </button>
+  </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+            <app-add-employee [employee]="employee" *ngIf="ActivateAddEmployeeCom">
+            </app-add-employee>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <router-outlet></router-outlet>
