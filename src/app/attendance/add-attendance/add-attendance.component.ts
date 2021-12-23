@@ -22,6 +22,10 @@ export class AddAttendanceComponent implements OnInit {
     this.EmployeePin = this.attendance.EmployeePin;
   }
   addAttendance() {
+    if (this.EmployeeId === "" || this.SuiteNumber === "" || this.Status === "" || this.EmployeePin === "") {
+      alert("You have to fill all the informations!!");
+      return;
+    }
     var val = {
       EmployeeId : this.EmployeeId,
       SuiteNumber : this.SuiteNumber,
