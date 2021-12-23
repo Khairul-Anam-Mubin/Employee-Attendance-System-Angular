@@ -1,28 +1,6 @@
 <!-- Button trigger modal -->
 <h3 class="d-flex justify-content-center">{{whichMonth}} Monthly Report</h3>
-<button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
-(click)="addClick()"
-data-backdrop="static" data-keyboard="false"
->
-    Add Attendance
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Attendance</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-          (click)="closeClick()"></button>
-        </div>
-        <div class="modal-body">
-            <app-add-attendance [attendance]="attendance" *ngIf="ActivateAddAttendanceCom">
-            </app-add-attendance>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <div class="container" style="width: 60%">
     <label class="col" style="float: left;">Month</label>

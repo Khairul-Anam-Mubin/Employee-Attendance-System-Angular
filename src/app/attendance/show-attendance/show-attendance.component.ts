@@ -9,7 +9,6 @@ export class ShowAttendanceComponent implements OnInit {
 
   constructor(private service: SharedService) { }
   AttendanceList:any=[];
-  ActivateAddAttendanceCom:boolean = false;
   attendance:any;
   Month:any;
   Year:any;
@@ -29,19 +28,7 @@ export class ShowAttendanceComponent implements OnInit {
   getKeys(obj: any): Array<string> {
     return Object.keys(obj);
   }
-  addClick(){
-    this.attendance={
-      EmployeeId:"",
-      SuiteNumber:"",
-      Status:"",
-      EmployeePin:""
-    }
-    this.ActivateAddAttendanceCom = true;
-  }
-  closeClick() {
-    this.ActivateAddAttendanceCom= false;
-    this.refreshAttendanceList();
-  }
+  
   Filter() {
     if (this.Year === "" && this.Month === "") {
       alert("You have to select Years and Month.");

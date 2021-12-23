@@ -1,41 +1,84 @@
 <div class="container">
   <h3 class="d-flex justify-content-center">Employee Attendance System</h3>
-  <nav class="navbar navbar-expand-sm bg-light navbar-dark justify-content-center">
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark justify-content-center" [hidden] = "!LogInDivHidden">
     <ul class="navbar-nav  ">
       <li class="nav-item">
-        <button routerLink = "employee" class="m-1 btn btn-light btn-outline-primary" Button>
+        <button routerLink="" class="m-1 btn btn-light btn-outline-primary" Button>
+          Home
+        </button>
+        <button routerLink="employee" class="m-1 btn btn-light btn-outline-primary" Button>
           Employees
         </button>
       </li>
       <li class="nav-item">
-        <button routerLink = "attendance" class="m-1 btn btn-light btn-outline-primary" Button>
+        <button routerLink="attendance" class="m-1 btn btn-light btn-outline-primary" Button>
           Attendances
+        </button>
+      </li>
+      <li class="nav-item float-right">
+        <button routerLink = "" type="button" class="m-1 btn btn-light btn-outline-warning" (click)="LogOut()">
+          Log Out
         </button>
       </li>
     </ul>
   </nav>
-  <div class="col text-center">
-    <button type="button" [hidden] = "buttonDisabled" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
-(click)="addClick()"
-data-backdrop="static" data-keyboard="false"
->
-{{buttonName}}
-  </button>
+  <div class="col text-center" [hidden]="!buttonDisabled">
+    <button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="addClick()" data-backdrop="static" data-keyboard="false">
+      Add Attendance
+    </button>
   </div>
 
-  
+  <div class="container" [hidden] = "LogInDivHidden">
+    <h5 class="d-flex justify-content-center my-3">Admin Login</h5>
+    <label class="col-sm-2 col-form-label">Admin Id</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="AdminId" placeholder="Enter ID" required>
+    </div>
+    <label class="col-sm-2 col-form-label">Pin</label>
+    <div class="col-sm-10">
+        <input type="password" class="form-control" [(ngModel)]="AdminPin" placeholder="******" required>
+
+    </div>
+    <button class="btn btn-success my-4" (click)="LogIn()"> Log In </button>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add Attendance</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-          (click)="closeClick()"></button>
+            (click)="closeClick()"></button>
         </div>
         <div class="modal-body">
-            <app-add-employee [employee]="employee" *ngIf="ActivateAddEmployeeCom">
-            </app-add-employee>
+          <app-add-attendance [attendance]="attendance" *ngIf="ActivateAddAttendanceCom">
+          </app-add-attendance>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+    If there is no user then creat admin button will appear
+  -->
+  <div class="col text-center">
+    <button type="button" [hidden]="buttonDisabled" class="btn btn-primary m-2" data-bs-toggle="modal"
+      data-bs-target="#exampleModal1" (click)="addClickAdmin()" data-backdrop="static" data-keyboard="false">
+      {{buttonName}}
+    </button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Add Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="closeClickAdmin()"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-employee [employee]="employee" *ngIf="ActivateAddAdmin">
+          </app-add-employee>
         </div>
       </div>
     </div>
